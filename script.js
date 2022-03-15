@@ -10,11 +10,11 @@ let currentPlayer = 'X';
 let gameState = ['', '', '', '', '', '', '', '', ''];
 
 // win
-const winningMessage = () => `Gracz ${currentPlayer} wygrał grę !`;
+const winningMessage = () => `Player ${currentPlayer} has won !`;
 // remis
-const drawMessage = () => `Gra zakończona remisem.`;
+const drawMessage = () => `Game ended in a draw.`;
 // który gracz
-const currentPlayerTurn = () => `Kolej gracza ${currentPlayer}`;
+const currentPlayerTurn = () => `Player ${currentPlayer} turn.`;
 // statusdisplay pod naszym .game--status bedzie wyswietlał zmienną currentPlayerTurn
 statusDisplay.innerHTML = currentPlayerTurn();
 
