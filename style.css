@@ -1,0 +1,54 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: sans-serif;
+	background-color: #3daab8a8;
+}
+
+h1 {
+	font-weight: 200;
+	font-size: 25px;
+	text-transform: uppercase;
+}
+section {
+	margin-top: 100px;
+	text-align: center;
+}
+
+.game--container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	width: 306px;
+	margin: 50px auto;
+}
+
+.cell {
+	font-family: 'Permanent Marker', cursive;
+	width: 100px;
+	height: 100px;
+	box-shadow: 0 0 0 1px #333333;
+	border: 1px solid #333333;
+	cursor: pointer;
+	line-height: 100px;
+	font-size: 60px;
+}
+
+button {
+	margin-top: 20px;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	color: #fff;
+	background-color: #333;
+	transition: background-color 0.3s, color 0.3s;
+	text-transform: uppercase;
+}
+button:hover {
+	color: #333;
+	background-color: #fff;
+}
