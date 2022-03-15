@@ -71,6 +71,14 @@ function handleResultValidation() {
 		gameActive = false;
 		return;
 	}
+	// remis -> jeżeli gameState (nasze pola)nie posiadają pustych komórek i nie osiagnelismy roundWon -> nastepuje odpalenie fukcji roundDraw + wyswietlenie w statusDisplay zmiennej drawMessage() => koniec gry
+	let roundDraw = !gameState.includes('');
+	if (roundDraw) {
+		statusDisplay.innerHTML = drawMessage();
+		gameActive = false;
+		return;
+	}
+	handlePlayerChange();
 }
 
 // fn - klikniecie komorki => listener na wszystkie nasze komórki wywołujący tą funkcję \/
