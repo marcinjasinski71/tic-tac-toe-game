@@ -1,5 +1,5 @@
 // przechowujemy status gry
-const statusDisplay = document.querySelector(`.game--status`);
+const statusDisplay = document.querySelector('.game--status');
 
 // gameactive - do pauzowania gry w momencie wygrania przez jednego z zawodników
 let gameActive = true;
@@ -10,20 +10,26 @@ let currentPlayer = 'X';
 let gameState = ['', '', '', '', '', '', '', '', ''];
 
 // win
-const winningMessage = () => {
-	`Gracz ${currentPlayer} wygrał grę !`;
-};
+const winningMessage = () => `Gracz ${currentPlayer} wygrał grę !`;
 // remis
-const drawMessage = () => {
-	`Gra zakończona remisem.`;
-};
+const drawMessage = () => `Gra zakończona remisem.`;
 // który gracz
-const currentPlayerTurn = () => {
-	`Kolej gracza ${currentPlayer}`;
-};
-
+const currentPlayerTurn = () => `Kolej gracza ${currentPlayer}`;
 // statusdisplay pod naszym .game--status bedzie wyswietlał zmienną currentPlayerTurn
 statusDisplay.innerHTML = currentPlayerTurn();
+
+// wartosci w tablicy winningConditions to indeksy dla komorek ktore musza byc zaznaczone przez TEGO SAMEGO gracza żeby był uznany jako zwycięzca
+
+const winningConditions = [
+	[0, 1, 2],
+	[3, 4, 5],
+	[6, 7, 8],
+	[0, 3, 6],
+	[1, 4, 7],
+	[2, 5, 8],
+	[0, 4, 8],
+	[2, 4, 6],
+];
 
 //handler kliknietej cellki przyjmujacy dwie wartosci -> clickedCell i clickedCellIndex
 function handleCellPlayed(clickedCell, clickedCellIndex) {
@@ -37,17 +43,6 @@ function handlePlayerChange() {
 	statusDisplay.innerHTML = currentPlayerTurn();
 }
 
-// wartosci w tablicy winningConditions to indeksy dla komorek ktore musza byc zaznaczone przez TEGO SAMEGO gracza żeby był uznany jako zwycięzca
-const winningConditions = [
-	[0, 1, 2],
-	[3, 4, 5],
-	[6, 7, 8],
-	[0, 3, 6],
-	[1, 4, 7],
-	[2, 5, 8],
-	[0, 4, 8],
-	[2, 4, 6],
-];
 // fn - sprawdzanie rezultatu
 
 function handleResultValidation() {
@@ -105,7 +100,13 @@ function handleCellClick(clickedCellEvent) {
 }
 
 // fn - restart gry
-function handleRestartGame() {}
+function handleRestartGame() {
+	gameActive = true;
+	currentPlayer = 'X';
+	gameState = ['', '', '', '', '', '', '', '', ''];
+	statusDisplay.innerHTML = currentPlayerTurn();
+	document.querySelectorAll(`.cell`).forEach(cell => (cell.innerHTML = ''));
+}
 
 //
 //
