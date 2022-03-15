@@ -32,9 +32,10 @@ function handleCellPlayed(clickedCell, clickedCellIndex) {
 }
 
 // fn - zmiana gracza
-function handlePlayerChange() {}
-
-// fn - sprawdzanie rezultatu
+function handlePlayerChange() {
+	currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+	statusDisplay.innerHTML = currentPlayerTurn();
+}
 
 // wartosci w tablicy winningConditions to indeksy dla komorek ktore musza byc zaznaczone przez TEGO SAMEGO gracza żeby był uznany jako zwycięzca
 const winningConditions = [
@@ -47,7 +48,8 @@ const winningConditions = [
 	[0, 4, 8],
 	[2, 4, 6],
 ];
-// sprawdzamy wynik
+// fn - sprawdzanie rezultatu
+
 function handleResultValidation() {
 	let roundWon = false;
 	// i <= 7 ponieważ mamy indeksy naszych tablic od 0-7 więc iterujemy po kazdej naszej tablicy sprawdzając poprawnosc wyniku
