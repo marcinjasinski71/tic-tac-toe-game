@@ -131,6 +131,9 @@ lightBtn.addEventListener(`click`, () => {
 });
 
 darkBtn.addEventListener(`click`, () => {
-	root.style.setProperty('--first-color', '#d1d0d0');
+	root.style.setProperty(
+		'--firshttps://marcinjasinski71.github.io/tic-tac-toe-game/t-color',
+		'#d1d0d0'
+	);
 	root.style.setProperty('--second-color', '#141414ea');
 });
