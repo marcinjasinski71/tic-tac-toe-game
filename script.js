@@ -1,5 +1,8 @@
 // przechowujemy status gry
 const statusDisplay = document.querySelector('.game--status');
+const darkBtn = document.querySelector(`.colorDark`);
+const lightBtn = document.querySelector(`.colorLight`);
+let root = document.documentElement;
 
 // gameactive - do pauzowania gry w momencie wygrania przez jednego z zawodników
 let gameActive = true;
@@ -120,3 +123,14 @@ document
 document
 	.querySelector(`.game--restart`)
 	.addEventListener(`click`, handleRestartGame);
+// color
+
+lightBtn.addEventListener(`click`, () => {
+	root.style.setProperty('--first-color', '#141414ea');
+	root.style.setProperty('--second-color', '#d1d0d0');
+});
+
+darkBtn.addEventListener(`click`, () => {
+	root.style.setProperty('--first-color', '#d1d0d0');
+	root.style.setProperty('--second-color', '#141414ea');
+});
